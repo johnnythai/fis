@@ -1,0 +1,20 @@
+version: "2.2"
+
+services:
+  fis-express:
+    image: johnnythai04/fis-express
+    ports: 
+      - "4001:4001"
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=development
+  fis-webapp:
+    build:
+      context: ../fis-webapp
+      dockerfile: Dockerfile
+      args:
+        - REACT_APP_API_URL=http://localhost:4001 
+    image: johnnthai04/fis-webapp:dev
+    ports:
+      - "3001:3001"
