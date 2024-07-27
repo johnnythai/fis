@@ -1,5 +1,3 @@
-version: "2.2"
-
 services:
   fis-express:
     image: johnnythai04/fis-express
